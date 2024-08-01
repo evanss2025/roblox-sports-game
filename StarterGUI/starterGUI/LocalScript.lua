@@ -10,6 +10,7 @@ Character = Player.Character or Player.CharacterAdded:Wait()
 
 
 Games.Visible = false
+script.Parent.Bowling.Visible = false
 
 button.MouseButton1Click:Connect(function()
 	button:Destroy()
@@ -33,7 +34,7 @@ game1.game1Play.MouseButton1Click:Connect(function()
 	title.Visible = false
 	homeGUI.Enabled = true
 	print("Game 1 was selected")
-	
+	script.Parent.Bowling.Visible = true
 	Character:MoveTo(workspace.bowling.bowlingSpawn.Position)
 
 end)
