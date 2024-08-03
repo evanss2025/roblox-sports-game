@@ -46,6 +46,18 @@ game1.game1Play.MouseButton1Click:Connect(function()
 		script.Parent.Bowling.Visible = false
 	end)
 
+	script.Parent.Bowling.game3Button.MouseButton1Click:Connect(function()
+		Character:MoveTo(workspace.bowling.game3.bowlingSpawn3.Position)
+		script.Parent.Bowling.Visible = false
+
+	end)
+	
+	script.Parent.Bowling.game4Button.MouseButton1Click:Connect(function()
+		Character:MoveTo(workspace.bowling.game4.bowlingSpawn4.Position)
+		script.Parent.Bowling.Visible = false
+
+	end)
+
 end)
 
 game2.game2Play.MouseButton1Click:Connect(function()
