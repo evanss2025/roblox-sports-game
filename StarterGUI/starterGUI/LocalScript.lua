@@ -35,7 +35,16 @@ game1.game1Play.MouseButton1Click:Connect(function()
 	homeGUI.Enabled = true
 	print("Game 1 was selected")
 	script.Parent.Bowling.Visible = true
-	Character:MoveTo(workspace.bowling.bowlingSpawn.Position)
+
+	script.Parent.Bowling.game1Button.MouseButton1Click:Connect(function()
+		Character:MoveTo(workspace.bowling.game1.bowlingSpawn.Position)
+		script.Parent.Bowling.Visible = false
+	end)
+	
+	script.Parent.Bowling.game2Button.MouseButton1Click:Connect(function()
+		Character:MoveTo(workspace.bowling.game2.bowlingSpawn2.Position)
+		script.Parent.Bowling.Visible = false
+	end)
 
 end)
 
