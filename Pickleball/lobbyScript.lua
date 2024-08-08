@@ -39,3 +39,18 @@ closeButton.MouseButton1Click:Connect(function()
 		script.Parent.Enabled = false
 
 end)
+
+createButton.MouseButton1Click:Connect(function()
+	
+	if (#games <= 4) then
+		local game = Instance.new("TextLabel")
+		game.Parent = script.Parent.lobbyBackground.Games
+
+		table.insert(games, game)
+
+		game.Text = "Game" .. #games
+	end
+	
+	print(games)
+	
+end)
