@@ -1,32 +1,56 @@
 inventoryButton = script.Parent.inventoryButton
 storeButton = script.Parent.storeButton
-playButton = script.Parent.playButton
 settingsButton = script.Parent.settingsButton
+storeGUI = script.Parent.Parent.storeGUI
+settingsGUI = script.Parent.Parent.settingsGUI
+invGUI = script.Parent.Parent.inventoryGUI
+partyGUI = script.Parent.Parent.PartyGui.Main
 
-script.Parent.Parent.storeGUI.Enabled = false
-script.Parent.Parent.inventoryGUI.Enabled = false
-script.Parent.Parent.settingsGUI.Enabled = false
+storeGUI.Enabled = false
+invGUI.Enabled = false
+settingsGUI.Enabled = false
 
 storeButton.MouseButton1Click:Connect(function()
-	checkEnabled(script.Parent.Parent.inventoryGUI)
-	checkEnabled(script.Parent.Parent.settingsGUI)
-	script.Parent.Parent.storeGUI.Enabled = true
+	if storeGUI.Enabled == true then
+		storeGUI.Enabled = false
+	else
+		checkEnabled(invGUI)
+		checkEnabled(settingsGUI)
+		checkParty()
+		storeGUI.Enabled = true
+	end
 end)
 
 inventoryButton.MouseButton1Click:Connect(function()
-	checkEnabled(script.Parent.Parent.storeGUI)
-	checkEnabled(script.Parent.Parent.settingsGUI)
-	script.Parent.Parent.inventoryGUI.Enabled = true
+	if invGUI.Enabled == true then
+		invGUI.Enabled = false
+	else
+		checkEnabled(storeGUI)
+		checkEnabled(settingsGUI)
+		checkParty()
+		invGUI.Enabled = true
+	end
 end)
 
 settingsButton.MouseButton1Click:Connect(function()
-	checkEnabled(script.Parent.Parent.inventoryGUI)
-	checkEnabled(script.Parent.Parent.storeGUI)
-	script.Parent.Parent.settingsGUI.Enabled = true
+	if settingsGUI.Enabled == true then
+		settingsGUI.Enabled = false
+	else
+		checkEnabled(invGUI)
+		checkEnabled(storeGUI)
+		checkParty()
+		settingsGUI.Enabled = true
+	end
 end)
 
 function checkEnabled(gui)
 	if gui.Enabled == true then
 		gui.Enabled = false
+	end
+end
+
+function checkParty()
+	if partyGUI.Visible == true then
+		partyGUI.Visible = false
 	end
 end
