@@ -43,6 +43,12 @@ settingsButton.MouseButton1Click:Connect(function()
 	end
 end)
 
+partyGUI.Parent.Open.MouseButton1Click:Connect(function()
+	storeGUI.Enabled = false
+	invGUI.Enabled = false
+	settingsGUI.Enabled = false
+end)
+
 function checkEnabled(gui)
 	if gui.Enabled == true then
 		gui.Enabled = false
