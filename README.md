@@ -9,3 +9,6 @@ I am learning Lua by making a game on Roblox! (don't judge, life is Roblox 🙄)
 
 ## Timeline
 - hoping to finish a very basic version by the time i go back to school (early September)
+
+## Currently working on...
+- Making a party system and graphics (8/12)
