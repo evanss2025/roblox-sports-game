@@ -163,14 +163,19 @@ re.OnServerEvent:Connect(function(plr, instruction, data)
 			end
 		end
 
-		if currentLeader == plr.Name and #currentParty.Members:GetChildren() >= minMembers then
+		if currentLeader == plr.Name and #currentParty.Members:GetChildren() == currentParty.MaximumMembers.Value then
+			print("enough players")
 
 			local inQueue = currentParty:FindFirstChild("IN QUEUE")
+			local notEnough = currentParty:FindFirstChild("NOT ENOUGH")
 
 			if inQueue then
 				queue:RemoveAsync(currentParty.Name)
 				inQueue:Destroy()
-
+				
+			elseif notEnough then
+				queue:RemoveAsync(currentParty.Name)
+				notEnough:Destroy()
 			else
 				local queueValue = Instance.new("IntValue")
 				queueValue.Name = "IN QUEUE"
@@ -193,6 +198,17 @@ re.OnServerEvent:Connect(function(plr, instruction, data)
 					end
 				end
 			end
+		else
+			
+			local queueValue = Instance.new("IntValue")
+			queueValue.Name = "NOT ENOUGH"
+			queueValue.Parent = currentParty
+			
+			wait(3)
+			queueValue.Name = "QUEUE"
+			
+			print("Not enough players")
+
 		end
 	end
 end)
