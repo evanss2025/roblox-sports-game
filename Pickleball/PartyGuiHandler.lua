@@ -178,6 +178,8 @@ function displayInParty(party)
 	while inParty == party do
 		if party:FindFirstChild("IN QUEUE") then
 			main.InPartyPage.Queue.Text = formatSeconds(party["IN QUEUE"].Value)
+		elseif party:FindFirstChild("NOT ENOUGH") then
+				main.InPartyPage.Queue.Text = "Not enough players"
 			
 		else
 			main.InPartyPage.Queue.Text = "Queue"
